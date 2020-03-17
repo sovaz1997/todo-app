@@ -1,7 +1,5 @@
 export default class Component {
-  constructor(app, props) {
-    this.app = app.slice();
-    this.props = props.slice();
+  constructor() {
     this.childs = []
     this.state = {}
     this.props = {}
@@ -11,10 +9,19 @@ export default class Component {
     for (key in state.keys()) {
       this.state[key] = state[key];
     }
+
     this.componentDidUpdated();
   }
 
   componentDidUpdated() {
-    this.app.rebuild();
+    this.controller.rebuild();
+  }
+
+  setController(controller) {
+    this.controller = controller;
+  }
+
+  render() {
+    return '';
   }
 }
