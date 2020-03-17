@@ -6,6 +6,6 @@ export default class Controller {
   }
 
   rebuild() {
-    this.selector.append(this.root.createElement());
+    this.selector.append(this.root.createElement(this.root.type));
   }
 }

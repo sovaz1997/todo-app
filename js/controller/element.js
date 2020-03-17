@@ -4,6 +4,7 @@ export default class Element {
   constructor(type, props, ...children) {
     this.props = props;
     this.children = children;
+    this.type = type;
 
 
     if(type instanceof Component) {
