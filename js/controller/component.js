@@ -1,20 +1,34 @@
 export default class Component {
-  constructor() {
+  constructor(controller) {
     this.childs = []
     this.state = {}
     this.props = {}
+    this.setController(controller);
   }
 
   setState(state) {
-    for (key in state.keys()) {
-      this.state[key] = state[key];
+    let updated = false;
+
+    for (let key in state) {
+      if(this.state[key] !== state[key]) {
+        this.state[key] = state[key];
+        updated = true;
+      }
     }
 
-    this.componentDidUpdated();
+    if(updated) {
+      this.componentDidUpdated();
+    }
   }
 
   componentDidUpdated() {
     this.controller.rebuild();
+  }
+
+  componentDidMounted() {
+    if(controller) {
+      this.setController(controller);
+    }
   }
 
   setController(controller) {

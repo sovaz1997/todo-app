@@ -1,11 +1,16 @@
 export default class Controller {
-  constructor(selector, root) {
+  constructor(selector) {
     this.selector = selector;
-    this.root = root;
-    this.rebuild();
   }
 
   rebuild() {
-    this.selector.append(this.root.createElement(this.root.type));
+    this.selector.innerHTML = '';
+    const el = this.root.createElement(this.root.type);
+    this.selector.innerHTML = el.innerHTML;
+  }
+
+  setRoot(root) {
+    this.root = root;
+    this.rebuild();
   }
 }

@@ -8,13 +8,14 @@ export default class TodoItem extends Component {
     text: ''
   }
 
-  constructor(props) {
-    super();
+  constructor(controller, ...props) {
+    super(controller);
 
     this.state.text = props;
   }
 
   render() {
+    this.setState({text: "!!!"});
     return new Element('p', {}, new Element(this.state.text));
   }
 }
