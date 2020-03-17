@@ -6,6 +6,6 @@ export default class Controller {
   }
 
   rebuild() {
-    this.selector.innerHTML = this.root.render();
+    this.selector.append(this.root.createElement());
   }
 }
