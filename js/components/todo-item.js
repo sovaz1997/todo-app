@@ -1,4 +1,5 @@
-import Component from "../controller/component.js";
+import Component from '../controller/component.js';
+import Element from '../controller/element.js';
 
 export default class TodoItem extends Component {
   state = {
@@ -14,6 +15,6 @@ export default class TodoItem extends Component {
   }
 
   render() {
-    return `<p>${this.state.text}</p>`;
+    return new Element('p', {}, new Element(this.state.text));
   }
 }
